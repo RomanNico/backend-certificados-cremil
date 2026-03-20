@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @page {
+            size: ANSI A;
+            margin: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            width: 210mm;
+            height: 297mm;
+            margin: 0;
+            padding: 15mm 25mm;
+            box-sizing: border-box;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ENCABEZADO */
+        .header {
+            width: 100%;
+            margin-bottom: 5mm;
+        }
+
+        .header img {
+            width: 100%;
+        }
+
+        /* INFO SUPERIOR */
+        .info-superior {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10mm;
+            margin-bottom: 25mm;
+            font-weight: bold;
+            font-size: 15.33px;
+        }
+
+        .info-izq {
+            line-height: 1.2;
+        }
+
+        .info-der {
+            font-weight: bold;
+        }
+
+        /* TÍTULOS */
+        .seccion-titulo {
+            text-align: center;
+            margin-bottom: 12mm;
+        }
+
+        .titulo-principal {
+            font-weight: bold;
+            font-size: 21.33px;
+            display: block;
+            margin-bottom: 8mm;
+        }
+
+        .entidad-nombre {
+            font-weight: bold;
+            font-size: 21.33px;
+            display: block;
+        }
+
+        /* CUERPO */
+        .contenido {
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        .parrafo {
+            margin-bottom: 5mm;
+        }
+
+        /* FIRMA Y CIERRE */
+        .firma-contenedor {
+            margin-top: 15mm;
+            text-align: center;
+        }
+
+        .firma-img {
+            width: 50mm;
+            margin-bottom: 2mm;
+        }
+
+        .datos-firmante {
+            /* Cambio: reducción del line-height para juntar las líneas */
+            line-height: 1.0;
+        }
+
+        .nombre-firmante {
+            font-weight: bold;
+            display: block;
+            font-size: 14.66px;
+        }
+
+        .elaboro {
+            margin-top: 8mm;
+            font-size: 10px;
+        }
+
+        /* PIE DE PÁGINA */
+        .footer {
+            margin-top: auto;
+            /* Empuja al final de la hoja */
+            width: 100%;
+            padding-top: 5mm;
+            /* Cambio: reducción del padding-bottom para subir el footer */
+            padding-bottom: 2mm;
+        }
+
+        .footer img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <img src="{{header}}" alt="Logos Ministerio y Cremil">
+    </div>
+
+    <div class="info-superior">
+        <div class="info-izq">
+            Bogotá, D.C.<br>
+            No. {{numeroCertificado}}
+        </div>
+        <div class="info-der">
+            CERTIFICADO
+        </div>
+    </div>
+
+    <div class="seccion-titulo">
+        <span class="titulo-principal">CERTIFICACION HABERES TITULAR</span>
+        <span class="entidad-nombre">LA CAJA DE RETIRO DE LAS FUERZAS MILITARES<br>CERTIFICA:</span>
+    </div>
+
+    <div class="contenido">
+        <div class="parrafo">
+            Que revisado el expediente administrativo del señor(a)
+            <strong>{{nombre}}</strong>, {{grado}}, identificado con {{tipoDocumento}} No.
+            <strong>{{documento}}</strong>,
+            se pudo establecer que tiene legalmente reconocida Asignación de Retiro, a partir del
+            <strong>{{fechaReconocimiento}}</strong>.
+        </div>
+
+        <div class="parrafo">
+            Que por este concepto devenga mensualmente la suma de <strong>{{valorTexto}} ({{valorNumero}})</strong>.
+        </div>
+
+        <div class="parrafo">
+            La presente se expide a solicitud del interesado. El {{fechaExpedicion}}.
+        </div>
+
+        <div class="parrafo" style="margin-top: 5mm;">
+            Cordialmente,
+        </div>
+
+        <div class="firma-contenedor">
+            <img src="{{firma}}" class="firma-img">
+            <div class="datos-firmante">
+                <span class="nombre-firmante">Profesional de Defensa Heidi Milena Estepa Hueso</span>
+                <span class="cargo-firmante">Coordinadora Centro Integral de Servicio al Usuario (E)</span>
+            </div>
+        </div>
+
+        <div class="elaboro">
+            Elaboró : Sede Electrónica CREMIL
+        </div>
+    </div>
+
+    <div class="footer">
+        <img src="{{footer}}">
+    </div>
+
+</body>
+
+</html>

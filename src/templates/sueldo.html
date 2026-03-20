@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @page {
+            size: ANSI A;
+            margin: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            width: 210mm;
+            height: 297mm;
+            margin: 0;
+            padding: 15mm 25mm;
+            box-sizing: border-box;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header img,
+        .footer img {
+            width: 100%;
+        }
+
+        .info-superior {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10mm;
+            margin-bottom: 25mm;
+            font-weight: bold;
+            font-size: 15.33px;
+        }
+
+        .seccion-titulo {
+            text-align: center;
+            margin-bottom: 12mm;
+        }
+
+        .titulo-principal {
+            font-weight: bold;
+            font-size: 21.33px;
+            display: block;
+            margin-bottom: 8mm;
+        }
+
+        .entidad-nombre {
+            font-weight: bold;
+            font-size: 21.33px;
+        }
+
+        .contenido {
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        .parrafo {
+            margin-bottom: 6mm;
+        }
+
+        .firma-contenedor {
+            margin-top: 15mm;
+            text-align: center;
+        }
+
+        .firma-img {
+            width: 50mm;
+        }
+
+        .nombre-firmante {
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: auto;
+            padding-bottom: 2mm;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <img src="{{header}}">
+    </div>
+
+    <div class="info-superior">
+        <div>
+            Bogotá, D.C.<br>
+            No. {{numeroCertificado}}
+        </div>
+        <div>CERTIFICADO</div>
+    </div>
+
+    <div class="seccion-titulo">
+        <span class="titulo-principal">CERTIFICACION HABERES BASICO TITULAR</span>
+        <span class="entidad-nombre">LA CAJA DE RETIRO DE LAS FUERZAS MILITARES<br>CERTIFICA:</span>
+    </div>
+
+    <div class="contenido">
+        <div class="parrafo">
+            Que {{apelativo}} <strong>{{nombre}}</strong>, identificado con {{tipoDocumento}} No.
+            <strong>{{documento}}</strong>, tiene legalmente reconocida Asignación de Retiro.
+        </div>
+
+        <div class="parrafo">
+            <strong>PORCENTAJE:</strong> {{porcentaje}}%
+        </div>
+
+        <div class="parrafo">
+            <strong>VALOR DE ASIGNACIÓN:</strong> {{valorNumero}}
+        </div>
+
+        <div class="parrafo">
+            La presente se expide a solicitud del interesado. El {{fechaExpedicion}}
+        </div>
+
+        <div class="parrafo" style="margin-top: 5mm;">
+            Cordialmente,
+        </div>
+
+        <div class="firma-contenedor">
+            <img src="{{firma}}" class="firma-img">
+            <div>
+                <span class="nombre-firmante">Profesional de Defensa Heidi Milena Estepa Hueso</span><br>
+                Coordinadora Centro Integral de Servicio al Usuario (E)
+            </div>
+        </div>
+
+        <div style="margin-top:8mm; font-size:10px;">
+            Elaboró : Sede Electrónica CREMIL
+        </div>
+    </div>
+
+    <div class="footer">
+        <img src="{{footer}}">
+    </div>
+
+</body>
+
+</html>
