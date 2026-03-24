@@ -34,13 +34,13 @@ function fechaFormal(fecha = new Date()) {
 }
 
 function separarNombre(nombreCompleto) {
-    const partes = nombreCompleto.split(' ');
+    const partes = nombreCompleto.trim().split(' ');
 
     return {
-        primerApellido: partes[1] || '',
-        segundoApellido: partes[2] || '',
         primerNombre: partes[0] || '',
-        otrosNombres: partes.slice(3).join(' ') || ''
+        otrosNombres: partes.length > 3 ? partes.slice(1, -2).join(' ') : '',
+        primerApellido: partes.length >= 2 ? partes[1] : '',
+        segundoApellido: partes.length >= 3 ? partes[2] : ''
     };
 }
 
@@ -70,7 +70,7 @@ function construirHTML(tipo, data) {
                 .replace('{{valorTexto}}', limpiarTexto(d.valorAsignacionTexto))
                 .replace('{{fechaReconocimiento}}', d.fechaReconocimientoTexto)
                 .replace('{{fechaExpedicion}}', fechaFormal())
-                .replace('{{numeroCertificado}}', '690')
+                .replace('690')
 
                 .replace('{{header}}', imagenBase64(path.join(__dirname, '../templates/assets/header.png')))
                 .replace('{{firma}}', imagenBase64(path.join(__dirname, '../templates/assets/firma.png')))
@@ -92,7 +92,7 @@ function construirHTML(tipo, data) {
                 .replace('{{porcentaje}}', d.porcentaje)
                 .replace('{{valorNumero}}', formatearNumero(d.valorAsignacion))
                 .replace('{{fechaExpedicion}}', fechaFormal())
-                .replace('{{numeroCertificado}}', '691')
+                .replace('690')
 
                 .replace('{{header}}', imagenBase64(path.join(__dirname, '../templates/assets/header.png')))
                 .replace('{{firma}}', imagenBase64(path.join(__dirname, '../templates/assets/firma.png')))
@@ -114,7 +114,7 @@ function construirHTML(tipo, data) {
                 .replace('{{fechaResolucion}}', d.fechaResolucionLetras)
                 .replace('{{fechaReconocimiento}}', d.fechaReconocimientoLetras)
                 .replace('{{fechaExpedicion}}', fechaFormal())
-                .replace('{{numeroCertificado}}', '692')
+                .replace('690')
 
                 .replace('{{header}}', imagenBase64(path.join(__dirname, '../templates/assets/header.png')))
                 .replace('{{firma}}', imagenBase64(path.join(__dirname, '../templates/assets/firma.png')))
@@ -136,7 +136,7 @@ function construirHTML(tipo, data) {
                 .replace('{{fechaResolucion}}', d.fechaResolucionLetras)
                 .replace('{{fechaReconocimiento}}', d.fechaReconocimientoLetras)
                 .replace('{{fechaExpedicion}}', fechaFormal())
-                .replace('{{numeroCertificado}}', '693')
+                .replace('690')
 
                 .replace('{{header}}', imagenBase64(path.join(__dirname, '../templates/assets/header.png')))
                 .replace('{{firma}}', imagenBase64(path.join(__dirname, '../templates/assets/firma.png')))
@@ -159,7 +159,7 @@ function construirHTML(tipo, data) {
                 .replace('{{fechaReconocimiento}}', d.fechaReconocimientoLetras)
                 .replace('{{tiempo}}', d.tiempoServicio)
                 .replace('{{fechaExpedicion}}', fechaFormal())
-                .replace('{{numeroCertificado}}', '694')
+                .replace('690')
 
                 .replace('{{header}}', imagenBase64(path.join(__dirname, '../templates/assets/header.png')))
                 .replace('{{firma}}', imagenBase64(path.join(__dirname, '../templates/assets/firma.png')))
@@ -168,26 +168,59 @@ function construirHTML(tipo, data) {
 
         // 6. INGRESOS Y RETENCIONES
         case 'ingresos': {
+            const t = cargarTemplate('ingresos.html');
 
             const d = data.ingresosRetenciones[0];
             const nombre = separarNombre(d.nombreCompleto);
 
+            const anio = d.anio;
+            const devengado = formatearNumero(Number(d.devengado));
+            const salud = formatearNumero(Number(d.aporteSalud));
+
+            const fecha = new Date();
+
+            const mapaTipoDocumento = {
+                '71': '13',
+                '72': '12',
+                '73': '22',
+                '74': '11',
+                '588': '31',
+                '286': '41',
+                '125': '42'
+            };
+
+            const tipoDocDIAN = mapaTipoDocumento[String(d.tipoDocumentoCorto)] || d.tipoDocumentoCorto;
+
             return t
-                .replace('{{tipoDocumento}}', d.tipoDocumentoCorto)
-                .replace('{{documento}}', d.numeroDocumento)
+                .replace('{{tipoDocumento}}', tipoDocDIAN)
+                .replace('{{numeroIdentificacion}}', d.numeroDocumento)
 
                 .replace('{{primerApellido}}', nombre.primerApellido)
                 .replace('{{segundoApellido}}', nombre.segundoApellido)
                 .replace('{{primerNombre}}', nombre.primerNombre)
                 .replace('{{otrosNombres}}', nombre.otrosNombres)
 
-                .replace('{{anio}}', d.anio)
+                // retenedor (fijo CREMIL)
+                .replace('{{nit}}', '899999118')
+                .replace('{{dv}}', '1')
+                .replace('{{razonSocial}}', 'CAJA DE RETIRO DE LAS FUERZAS MILITARES')
 
-                .replace('{{devengado}}', formatearNumero(d.devengado))
-                .replace('{{salud}}', formatearNumero(d.aporteSalud))
+                // año
+                .replace(/{{anio}}/g, anio)
 
-                // si no tienes retención real aún
-                .replace('{{retencion}}', formatearNumero(d.aporteSalud));
+                // fecha expedición
+                .replace('{{anioExp}}', fecha.getFullYear())
+                .replace('{{mesExp}}', String(fecha.getMonth() + 1).padStart(2, '0'))
+                .replace('{{diaExp}}', String(fecha.getDate()).padStart(2, '0'))
+
+                // ciudad
+                .replace('{{ciudad}}', 'Bogotá, DC')
+
+                // valores
+                .replace('{{pension}}', devengado)
+                .replace('{{totalIngresos}}', devengado)
+                .replace('{{salud}}', salud)
+                .replace('{{retencion}}', '0');
         }
 
         default:

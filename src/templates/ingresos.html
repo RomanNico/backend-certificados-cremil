@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Certificado de Ingresos y Retenciones 2024</title>
+    <title>Certificado de Ingresos y Retenciones</title>
     <style>
         * {
             box-sizing: border-box;
@@ -54,7 +54,7 @@
             text-align: center;
             vertical-align: middle;
             font-weight: bold;
-            font-size: 7pt;
+            font-size: 6pt;
             padding: 4px 1px;
             white-space: nowrap;
         }
@@ -122,6 +122,23 @@
             font-weight: bold;
             text-align: center;
         }
+
+        .field-cell {
+            height: 28px;
+            vertical-align: bottom;
+            font-size: 6.5pt;
+        }
+
+        .field-label {
+            font-size: 6pt;
+            display: block;
+        }
+
+        .field-value {
+            font-weight: bold;
+            display: block;
+            margin-top: 2px;
+        }
     </style>
 </head>
 
@@ -162,18 +179,16 @@
                         class="logo-part" />
                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAoCAIAAABSCBxZAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAARklEQVQokWPk2XaHARWw/P73H0MIXYSBCV1gZAix/P+PHhREamTA0MjC8O8fMUJ/ydVIttBfahpPlOv//iVC1X8yjccSHQCvSDK7QWtzogAAAABJRU5ErkJggg=="
                         class="logo-part" style="height:16px;" />
-                    <img src="data:image/png;base64,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"
-                        class="logo-part" />
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAATElEQVQYlWP8//8/w+PHjzkZoEBWVvY7AxJgYd5y5z8DAwPDXx8VRgYsgAmfJFwBPoBXwYsXL7iJMwHmUGQAE2P8//8/VgUMDBDHAwBkPRtgVmfmhQAAAABJRU5ErkJggg=="
-                        style="height:6px; vertical-align:middle;" />
                     <img src="data:image/png;base64,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"
+                        class="logo-part" />
+                    <img src="data:image/png;base64,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"
                         class="logo-part" />
                 </td>
                 <td colspan="14"
                     style="text-align:center; vertical-align:middle; padding:3px; border:0.75pt solid #29486C;">
                     <span class="bold">Certificado de Ingresos y Retenciones por Rentas de Trabajo y de Pensiones
                         Año</span><br />
-                    <span class="bold">gravable 2024</span>
+                    <span class="bold">gravable {{anio}}</span>
                 </td>
                 <td colspan="4"
                     style="vertical-align:middle; text-align:center; border:0.75pt solid #29486C; padding:2px;">
@@ -210,10 +225,10 @@
             </tr>
             <!-- Row 4: Values -->
             <tr>
-                <td colspan="5" style="padding:1px 2px; border:0.75pt solid #29486C;">899999118</td>
-                <td style="padding:1px 2px; border:0.75pt solid #29486C;">1</td>
+                <td colspan="5" style="padding:1px 2px; border:0.75pt solid #29486C;">{{nit}}</td>
+                <td style="padding:1px 2px; border:0.75pt solid #29486C;">{{dv}}</td>
                 <td colspan="4" style="padding:1px 2px; border:0.75pt solid #29486C;"></td>
-                <td colspan="4" style="padding:1px 2px; border:0.75pt solid #29486C;">Primer nombre</td>
+                <td colspan="4" style="padding:1px 2px; border:0.75pt solid #29486C;"></td>
                 <td colspan="3" style="padding:1px 2px; border:0.75pt solid #29486C;"></td>
                 <td colspan="5" style="padding:1px 2px; border:0.75pt solid #29486C;"></td>
             </tr>
@@ -224,47 +239,106 @@
             </tr>
             <!-- Row 6: Razón social value -->
             <tr>
-                <td colspan="22" style="padding:1px 2px; font-weight:bold; border:0.75pt solid #29486C;">CAJA DE RETIRO
-                    DE LAS FUERZAS MILITARES</td>
+                <td colspan="22" style="padding:1px 2px; font-weight:bold; border:0.75pt solid #29486C;">{{razonSocial}}
+                </td>
             </tr>
 
             <!-- ROW 7: Trabajador -->
             <tr>
                 <td class="rotated-cell" style="border:0.75pt solid #29486C;">Trabajador</td>
-                <td colspan="2" style="font-size:6.5pt; padding:1px 2px; border:0.75pt solid #29486C;">24. Tipo
-                    de<br />documento<br /><strong>13</strong></td>
-                <td colspan="6" style="font-size:6.5pt; padding:1px 2px; border:0.75pt solid #29486C;">25. Número de
-                    Identificación</td>
-                <td colspan="2" style="font-size:6.5pt; padding:1px 2px; border:0.75pt solid #29486C;">26. Primer
-                    apellido</td>
-                <td colspan="4" style="font-size:6.5pt; padding:1px 2px; border:0.75pt solid #29486C;">27. Segundo
-                    apellido</td>
-                <td colspan="3" style="font-size:6.5pt; padding:1px 2px; border:0.75pt solid #29486C;">28. Primer nombre
+
+                <!-- 24 -->
+                <td colspan="4" style="font-size:6.5pt; padding:1px 2px; border:0.75pt solid #29486C;">
+                    24. Tipo de documento<br>
+                    <strong>{{tipoDocumento}}</strong>
                 </td>
-                <td colspan="5" style="font-size:6.5pt; padding:1px 2px; border:0.75pt solid #29486C;">29. Otros nombres
+
+                <!-- 25 -->
+                <td colspan="4" style="font-size:6.5pt; padding:1px 2px; border:0.75pt solid #29486C;">
+                    25. Número de Identificación<br>
+                    <strong>{{numeroIdentificacion}}</strong>
+                </td>
+
+                <!-- 26 -->
+                <td colspan="2" style="font-size:6.5pt; padding:1px 2px; border:0.75pt solid #29486C;">
+                    26. Primer apellido<br>
+                    <strong>{{primerApellido}}</strong>
+                </td>
+
+                <!-- 27 -->
+                <td colspan="4" style="font-size:6.5pt; padding:1px 2px; border:0.75pt solid #29486C;">
+                    27. Segundo apellido<br>
+                    <strong>{{segundoApellido}}</strong>
+                </td>
+
+                <!-- 28 -->
+                <td colspan="3" style="font-size:6.5pt; padding:1px 2px; border:0.75pt solid #29486C;">
+                    28. Primer nombre<br>
+                    <strong>{{primerNombre}}</strong>
+                </td>
+
+                <!-- 29 -->
+                <td colspan="5" style="font-size:6.5pt; padding:1px 2px; border:0.75pt solid #29486C;">
+                    29. Otros nombres<br>
+                    <strong>{{otrosNombres}}</strong>
                 </td>
             </tr>
 
             <!-- ROW 8: Periodo certificación -->
             <tr>
-                <td colspan="2"
-                    style="font-size:6.5pt; font-weight:bold; padding:1px 2px; border:0.75pt solid #29486C; vertical-align:bottom;">
-                    30. DE:</td>
-                <td colspan="4" style="font-size:6.5pt; padding:1px 2px; border:0.75pt solid #29486C;">
-                    Período de la certificación<br />
-                    2024 &nbsp;01 &nbsp;01 &nbsp;&nbsp;<strong>31. A:</strong>
+                <!-- PERIODO -->
+                <td colspan="10" style="padding:0;">
+                    <table style="width:100%; border-collapse:collapse;">
+                        <tr>
+                            <td colspan="8"
+                                style="text-align:center; font-size:6.5pt; border:none; padding-bottom:2px;">
+                                Período de la certificación
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="border:none;">
+                                <strong>30. DE:</strong>
+                            </td>
+
+                            <td class="center" style="border:none;">{{anio}}</td>
+                            <td class="center" style="border:none;">01</td>
+                            <td class="center" style="border:none;">01</td>
+
+                            <td style="border:none;">
+                                <strong>31. A:</strong>
+                            </td>
+
+                            <td class="center" style="border:none;">{{anio}}</td>
+                            <td class="center" style="border:none;">12</td>
+                            <td class="center" style="border:none;">31</td>
+                        </tr>
+                    </table>
                 </td>
-                <td style="padding:1px 2px; border:0.75pt solid #29486C;">2024</td>
-                <td style="padding:1px 2px; border:0.75pt solid #29486C;">12</td>
-                <td colspan="2" style="padding:1px 2px; border:0.75pt solid #29486C;">31</td>
-                <td colspan="3" style="font-size:6.5pt; padding:1px 2px; border:0.75pt solid #29486C;">32. Fecha de
-                    expedición<br />2025 &nbsp;09 &nbsp;06</td>
-                <td colspan="8" style="font-size:6.5pt; padding:1px 2px; border:0.75pt solid #29486C;">33. Lugar donde
-                    se practicó la retención<br />Bogotá, DC</td>
-                <td style="font-size:6pt; padding:1px 2px; border:0.75pt solid #29486C; text-align:center;">34.
-                    Cód.<br />Dpto.<br />11</td>
-                <td style="font-size:6pt; padding:1px 2px; border:0.75pt solid #29486C; text-align:center;">35. Cód.
-                    Ciudad/<br />Municipio<br />001</td>
+
+                <!-- 32 -->
+                <td colspan="3" class="center">
+                    <div style="font-size:6.5pt;">32. Fecha de expedición</div>
+                    {{anioExp}}&nbsp;&nbsp;{{mesExp}}&nbsp;&nbsp;{{diaExp}}
+                </td>
+
+                <!-- 33 -->
+                <td colspan="6" class="center">
+                    <div style="font-size:6.5pt;">33. Lugar donde se practicó la retención</div>
+                    Bogotá, DC
+                </td>
+
+                <!-- 34 -->
+                <td colspan="2" class="center">
+                    <div style="font-size:6pt;">34. Cód.<br>Dpto.</div>
+                    11
+                </td>
+
+                <!-- 35 -->
+                <td colspan="2" class="center">
+                    <div style="font-size:6pt;">35. Cód. Ciudad/<br>Municipio</div>
+                    001
+                </td>
             </tr>
 
             <!-- SECTION HEADER: Ingresos -->
@@ -362,7 +436,7 @@
                 <td colspan="17" style="padding:1px 3px; border:0.75pt solid #29486C;">Pensiones de jubilación, vejez o
                     invalidez</td>
                 <td colspan="2" class="num-cell" style="border:0.75pt solid #29486C;">50</td>
-                <td colspan="4" class="value-cell" style="border:0.75pt solid #29486C;">0</td>
+                <td colspan="4" class="value-cell" style="border:0.75pt solid #29486C;">{{pension}}</td>
             </tr>
             <tr>
                 <td colspan="17" style="padding:1px 3px; border:0.75pt solid #29486C;">Apoyos económicos educativos
@@ -374,8 +448,9 @@
                 <td colspan="17" style="padding:1px 3px; border:0.75pt solid #29486C; font-weight:bold;"><strong>Total
                         de ingresos brutos</strong> (Sume 36 a 48)</td>
                 <td colspan="2" class="num-cell" style="border:0.75pt solid #29486C; font-weight:bold;">
-                    <strong>52</strong></td>
-                <td colspan="4" class="value-cell" style="border:0.75pt solid #29486C;">0</td>
+                    <strong>52</strong>
+                </td>
+                <td colspan="4" class="value-cell" style="border:0.75pt solid #29486C;">{{totalIngresos}}</td>
             </tr>
 
             <!-- SECTION HEADER: Aportes -->
@@ -395,7 +470,7 @@
                 <td colspan="17" style="padding:1px 3px; border:0.75pt solid #29486C;">Aportes obligatorios por salud a
                     cargo del trabajador</td>
                 <td colspan="2" class="num-cell" style="border:0.75pt solid #29486C;">53</td>
-                <td colspan="4" class="value-cell" style="border:0.75pt solid #29486C;">0</td>
+                <td colspan="4" class="value-cell" style="border:0.75pt solid #29486C;">{{salud}}</td>
             </tr>
             <tr>
                 <td colspan="17" style="padding:1px 3px; border:0.75pt solid #29486C;">Aportes obligatorios a fondos de
@@ -429,13 +504,15 @@
                 <td colspan="17" style="padding:1px 3px; border:0.75pt solid #29486C;">Ingreso laboral promedio de los
                     últimos seis meses anteriores (numeral 4 art. 206 E.T.)</td>
                 <td colspan="2" class="num-cell" style="border:0.75pt solid #29486C; font-weight:bold;">
-                    <strong>59</strong></td>
+                    <strong>59</strong>
+                </td>
                 <td colspan="4" class="value-cell" style="border:0.75pt solid #29486C;">0</td>
             </tr>
             <tr style="background-color:#FFFF99;">
                 <td colspan="17"
                     style="padding:1px 3px; border:0.75pt solid #29486C; font-weight:bold; background-color:#FFFF99;">
-                    <strong>Valor de la retención en la fuente por ingresos laborales y de pensiones</strong></td>
+                    <strong>Valor de la retención en la fuente por ingresos laborales y de pensiones</strong>
+                </td>
                 <td colspan="2" class="num-cell"
                     style="border:0.75pt solid #29486C; font-weight:bold; background-color:#FFFF99;"><strong>60</strong>
                 </td>
@@ -524,7 +601,8 @@
                         retenido:</strong> Sume 63 a 68<strong>)</strong>
                 </td>
                 <td class="num-cell" style="border:0.75pt solid #29486C; background-color:#E0E0E0; font-weight:bold;">
-                    <strong>67</strong></td>
+                    <strong>67</strong>
+                </td>
                 <td colspan="2" style="border:0.75pt solid #29486C; background-color:#E0E0E0;"></td>
                 <td colspan="2" class="num-cell"
                     style="border:0.75pt solid #29486C; background-color:#E0E0E0; font-weight:bold;"><strong>74</strong>
@@ -535,10 +613,11 @@
             <!-- Total retenciones -->
             <tr>
                 <td colspan="17" style="padding:1px 3px; border:0.75pt solid #29486C; font-weight:bold;">
-                    <strong>Total retenciones año gravable 2024</strong> (Sume 55 + 69)
+                    <strong>Total retenciones año gravable {{anio}}</strong> (Sume 55 + 69)
                 </td>
                 <td colspan="2" class="num-cell" style="border:0.75pt solid #29486C; font-weight:bold;">
-                    <strong>75</strong></td>
+                    <strong>75</strong>
+                </td>
                 <td colspan="4" style="border:0.75pt solid #29486C;"></td>
             </tr>
 
@@ -546,7 +625,8 @@
             <tr>
                 <td colspan="1" class="section-header"
                     style="border:0.75pt solid #29486C; padding:2px; text-align:center; font-weight:bold;">
-                    <strong>Ítem</strong></td>
+                    <strong>Ítem</strong>
+                </td>
                 <td colspan="18" class="section-header" style="border:0.75pt solid #29486C; padding:2px;"><strong>76.
                         Identificación de los bienes poseídos</strong></td>
                 <td colspan="4" class="section-header"
@@ -579,7 +659,7 @@
             <tr>
                 <td colspan="15"
                     style="padding:1px 3px; border:0.75pt solid #29486C; font-weight:bold; background-color:#BDD7EE;">
-                    <strong>Deudas vigentes a 31 de Diciembre de 2024</strong>
+                    <strong>Deudas vigentes a 31 de Diciembre de {{anio}}</strong>
                 </td>
                 <td colspan="4" class="num-cell" style="border:0.75pt solid #29486C; background-color:#BDD7EE;">78</td>
                 <td colspan="4" style="border:0.75pt solid #29486C; background-color:#BDD7EE;"></td>
@@ -609,7 +689,7 @@
             <tr>
                 <td colspan="16"
                     style="padding:2px 3px; border:0.75pt solid #29486C; font-size:7pt; vertical-align:top;">
-                    Certifico que durante el año gravable de 2024:<br />
+                    Certifico que durante el año gravable de {{anio}}:<br />
                     1. Mi patrimonio bruto era igual o inferior a 4.500 UVT<br />
                     2. Mis ingresos brutos fueron inferiores a 1.400 UVT<br />
                     3. No fui responsable del impuesto sobre las ventas a 31 de diciembre del año gravable.<br />
@@ -617,7 +697,7 @@
                     5. Que el total de mis compras y consumos no superaron la suma de 1.400 UVT.<br />
                     6. Que el valor total de mis consignaciones bancarias, depósitos o inversiones financieras no
                     excedieron los 1.400 UVT. Por lo tanto, manifiesto que no estoy obligado a presentar declaración de
-                    renta y complementario por el año gravable 2024.
+                    renta y complementario por el año gravable {{anio}}.
                 </td>
                 <td colspan="7"
                     style="padding:2px 3px; border:0.75pt solid #29486C; font-size:7pt; vertical-align:top;">
