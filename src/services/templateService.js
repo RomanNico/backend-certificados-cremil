@@ -34,13 +34,31 @@ function fechaFormal(fecha = new Date()) {
 }
 
 function separarNombre(nombreCompleto) {
-    const partes = nombreCompleto.trim().split(' ');
+    const partes = nombreCompleto.trim().split(" ");
+
+    let primerNombre = "";
+    let otrosNombres = "";
+    let primerApellido = "";
+    let segundoApellido = "";
+
+    if (partes.length === 4) {
+        [primerNombre, otrosNombres, primerApellido, segundoApellido] = partes;
+    } else if (partes.length === 3) {
+        [primerNombre, primerApellido, segundoApellido] = partes;
+    } else if (partes.length === 2) {
+        [primerNombre, primerApellido] = partes;
+    } else {
+        primerNombre = partes[0] || "";
+        otrosNombres = partes.slice(1, partes.length - 2).join(" ");
+        primerApellido = partes[partes.length - 2] || "";
+        segundoApellido = partes[partes.length - 1] || "";
+    }
 
     return {
-        primerNombre: partes[0] || '',
-        otrosNombres: partes.length > 3 ? partes.slice(1, -2).join(' ') : '',
-        primerApellido: partes.length >= 2 ? partes[1] : '',
-        segundoApellido: partes.length >= 3 ? partes[2] : ''
+        primerNombre,
+        otrosNombres,
+        primerApellido,
+        segundoApellido
     };
 }
 
