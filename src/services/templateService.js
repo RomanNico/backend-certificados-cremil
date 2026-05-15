@@ -186,7 +186,7 @@ function construirHTML(tipo, data) {
 
         // 6. INGRESOS Y RETENCIONES
         case 'ingresos': {
-            const t = cargarTemplate('ingresos.html');
+            const t = cargarTemplate('ingresos2.html');
 
             const d = data.ingresosRetenciones[0];
             const nombre = separarNombre(d.nombreCompleto);
